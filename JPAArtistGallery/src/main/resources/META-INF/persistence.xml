@@ -4,12 +4,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-  <persistence-unit name="XtremePU">
+  <persistence-unit name="ArtistGalleryPU">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 
 <!-- List Entities Here -->
-<class>com.skilldistillery.xtreme.entities.Artist</class>
+<class>com.skilldistillery.artistgallery.entities.Artist</class>
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/artistgallerydb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=MST" />
