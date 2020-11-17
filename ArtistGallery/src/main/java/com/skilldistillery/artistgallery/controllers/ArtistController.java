@@ -56,7 +56,7 @@ public class ArtistController {
 	}
 	
 	@PutMapping("artists/{id}")
-	public Artist udpateFilm(@PathVariable Integer id, @RequestBody Artist artist, HttpServletResponse response) {
+	public Artist udpateArtist(@PathVariable Integer id, @RequestBody Artist artist, HttpServletResponse response) {
 		try {
 			artist = svc.updateArtist(id, artist);
 			if (artist == null) {
@@ -70,8 +70,8 @@ public class ArtistController {
 		return artist;
 	}
 	
-	@DeleteMapping("artists/{id}")
-	public void deleteFilm(@PathVariable Integer id, HttpServletResponse response) {
+	@DeleteMapping("{id}")
+	public void deleteArtist(@PathVariable Integer id, HttpServletResponse response) {
 		if (svc.delete(id)) {
 			response.setStatus(204);
 		}
