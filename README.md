@@ -4,16 +4,20 @@
 * Users will be able to view a list of all artists as well as create, update, and delete one.
 
 ### REST route
-|   **Request Method**  |  **Method**  |     **Path**    | \n
-|  Create a new artist  |     POST     |   /api/artists  | \n
-|   Update an artist    |      PUT     |  /api/artists/1 | \n
-|   Delete an artist    |      DEL     |      /api/2     | \n
-|    List of artists    |      GET     |  /api/artists   | \n
+|    **Method Names**   |  **Action**  |     **Path**    |
 
-  * Create a new artist - method: POST - Path: /api/artists
+|  Create a new artist  |     POST     |   /api/artists  |
+
+|   Update an artist    |      PUT     |  /api/artists/1 |
+
+|   Delete an artist    |      DEL     |      /api/2     |
+
+|    List of artists    |      GET     |  /api/artists   |
+
+  <!-- * Create a new artist - method: POST - Path: /api/artists
   * Update an artist - method: PUT - Path: /api/artists/1
   * Delete an artist - method: DEL - Path: /api/2
-  * List of artists - method: GET - Path: /api/artists
+  * List of artists - method: GET - Path: /api/artists -->
 
 ### Lessons Learned
 * Using REST routes to ensure proper mapping of HTTP actions with controller request methods.
