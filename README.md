@@ -5,13 +5,10 @@
 
 ### REST route
 |    **Method Names**   |  **Action**  |     **Path**    |
-
+|-----------------------|--------------|-----------------|
 |  Create a new artist  |     POST     |   /api/artists  |
-
 |   Update an artist    |      PUT     |  /api/artists/1 |
-
 |   Delete an artist    |      DEL     |      /api/2     |
-
 |    List of artists    |      GET     |  /api/artists   |
 
   <!-- * Create a new artist - method: POST - Path: /api/artists
