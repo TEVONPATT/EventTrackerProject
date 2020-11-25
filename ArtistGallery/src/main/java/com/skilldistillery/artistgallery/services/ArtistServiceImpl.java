@@ -31,10 +31,9 @@ public class ArtistServiceImpl implements ArtistService {
 	}
 
 	@Override
-	public Artist create(int id, Artist artist) {
+	public Artist create(Artist artist) {
 		if (artist.getName() == null) {
 			artist = new Artist();
-			artist.setId(1);
 		}
 		repo.saveAndFlush(artist);
 		return artist;

@@ -10,7 +10,7 @@ public interface ArtistService {
 	List<Artist> getArtistsForKeyword(String keyword);
 	Optional<Artist> findById(int id);
 	Artist showArtist(int artistId);
-	Artist create(int id, Artist artist);
+	Artist create(Artist artist);
 	Artist updateArtist(int id, Artist artist);
 	boolean delete(int artistId);
 

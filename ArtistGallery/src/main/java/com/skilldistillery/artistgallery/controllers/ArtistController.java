@@ -36,15 +36,14 @@ public class ArtistController {
 
 	}
 
-	@PostMapping("{id}/artists")
-	public Artist addArtist(@PathVariable Integer id, @RequestBody Artist artist, HttpServletRequest request,
+	@PostMapping("artists")
+	public Artist addArtist(@RequestBody Artist artist, HttpServletRequest request,
 			HttpServletResponse response) {
 
 		try {
-			artist = svc.create(id, artist);
+			artist = svc.create(artist);
 			response.setStatus(404);
 			StringBuffer url = request.getRequestURL();
-			url.append("/").append(artist.getId());
 			response.setStatus(201);
 		} catch (Exception e) {
 			response.setStatus(404);
