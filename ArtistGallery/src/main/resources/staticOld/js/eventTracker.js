@@ -7,15 +7,19 @@ window.addEventListener("load", function () {
 function init() {
   console.log("in init()");
   console.log("in init()2");
+  console.log("We made it");
   
-    fetchArtists();
-    console.log("We made it");
-    deleteArtist();
-  document.newArtistForm.submit.addEventListener('click', function(evt){
-    evt.preventDefault();
-    postNewArtist(evt);
-  });
-}
+  console.log("made it here");
+  console.log("We made it");
+  fetchArtists();
+  console.log("We made it");
+    // deleteArtist();
+    document.newArtistForm.submit.addEventListener('click', function(evt){
+      evt.preventDefault();
+      postNewArtist(evt);
+    });
+  }
+  console.log("made it here too");
 
 function showArtists(artists){
         var dataDiv = document.getElementById('artistData');
@@ -61,7 +65,39 @@ function showArtists(artists){
         };
         xhr.send();
       }
-      
+      function updateArtist(e) {
+        console.log('ok, you got here');
+        let artistDiv = document.getElementById('artistData');
+         document.getElementById('name').value;
+         document.getElementById('birthYear').value;
+         document.getElementById('deathYear').value;
+         document.getElementById('deathYear').value;
+         document.getElementById('artStyle').value;
+         document.getElementById('listOfWork').value;
+         console.log(artistDiv);
+        //  let json = JSON.stringify(updateArtist);
+       }
+
+       let json 
+       function update() {
+        console.log('update');
+      let xhr = new XMLHttpRequest();
+      xhr.open('PUT', `api/artists/`);
+      xhr.onreadystatechange = function(){
+          console.log(xhr);
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            let artistsJson = xhr.responseText;
+            let artists = JSON.parse(artistsJson);
+            updateArtist(artists);
+          }
+        }
+      };xhr.setRequestHeader('Content-type','application/json')
+      xhr.send(JSON.stringify(updateArtist));
+      console.log('artist:');
+      xhr.send();
+    }  
+  
  
  
  
@@ -155,24 +191,23 @@ function showArtists(artists){
     };
     xhr.setRequestHeader('Content-type','application/json')
     xhr.send(JSON.stringify(newArtist));
+    console.log('artist:');
   }
 
-function deleteArtist(e){
-    let form = document.artistDiv;
-    artistDiv.textContent = '';
-    removeEventListener.getElementById('artistData');
+// function deleteArtist(e){
+//     let deletedArtist = postNewArtist.newArtist;
+//     console.log('artist:' + deletedArtist);
 
-    console.log(artistDiv);
-    let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', `api/{id}}/`);
-    xhr.onreadystatechange = function(){
-          let savedArtist = JSON.parse(xhr.responseText);
-          displayArtists(savedArtist);
-        };
-    xhr.setRequestHeader('Content-type','application/json')
-    xhr.send(JSON.stringify(artistDiv));
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('DELETE', `api/{id}}/`);
+    // xhr.onreadystatechange = function(){
+    //       let savedArtist = JSON.parse(xhr.responseText);
+    //       displayArtists(savedArtist);
+    //     };
+    // xhr.setRequestHeader('Content-type','application/json')
+    // xhr.send(JSON.stringify(artistDiv));
 
-}
+// }
 
 // xhr.open('PUT', 'api/artists/' + artistId);
 // xhr.send(JSON.stringify(updatedArtist));

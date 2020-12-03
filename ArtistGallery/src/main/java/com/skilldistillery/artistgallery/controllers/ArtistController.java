@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skilldistillery.artistgallery.entities.Artist;
 import com.skilldistillery.artistgallery.services.ArtistService;
 
+@CrossOrigin({"*", "http://localhost:4205"})
 @RequestMapping("api")
 @RestController
 public class ArtistController {
@@ -69,7 +71,7 @@ public class ArtistController {
 		return artist;
 	}
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("artists/{id}")
 	public void deleteArtist(@PathVariable Integer id, HttpServletResponse response) {
 		if (svc.delete(id)) {
 			response.setStatus(204);

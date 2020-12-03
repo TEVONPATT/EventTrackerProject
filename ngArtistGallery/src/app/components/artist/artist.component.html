@@ -1,0 +1,66 @@
+<p>artist works!</p>
+
+<div *ngIf="selected">
+<table>
+  <h3>{{selected.id}}: {{selected.name}}</h3>
+    <thead>
+  </thead>
+  <tbody>
+    <tr>
+      Art Form: <td>{{selected.artStyle}}</td><br>
+      Birth Year: <td>{{selected.birthYear}}</td><br>
+      Death Year: <td>{{selected.deathYear}}</td><br>
+      List of Works: <td>{{selected.listOfWork}}</td>
+    </tr>
+  </tbody>
+</table>
+  <td><button (click)='setEditArtist()' class="btn-danger">Edit</button></td>
+  <!-- <td><button (click)="deleteArtist()">Delete</button></td> -->
+  <button (click)="selected = null">Back to Artists</button>
+</div>
+
+<div *ngIf="!selected">
+<table>
+  <thead>
+    <div *ngIf="! selected && ! editArtist">
+      <input type="text" name="new artist" placeholder="Artist Name" [(ngModel)]='newArtist.name'/><br/>
+      <input type="text" name="new artist" placeholder="Art Forms" [(ngModel)]='newArtist.artStyle'/><br/>
+      <input type="text" name="new artist" placeholder="Birth Year" [(ngModel)]='newArtist.birthYear'/><br/>
+      <input type="text" name="new artist" placeholder="Death Year" [(ngModel)]='newArtist.deathYear'/><br/>
+      <input type="text" name="new artist" placeholder="List Of Work" [(ngModel)]='newArtist.listOfWork'/><br/>
+      <input (click)="addArtist(newArtist)" type="submit" value="addArtist" name='submit'/>
+
+    </div>
+
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>name</td>
+      <!-- <td>image</td> -->
+    </tr>
+
+    <tr *ngFor="let artist of artists" (click)="selected = artist">
+      <td>{{artist.id}}</td>
+      <td>{{artist.name}}</td>
+      <!-- <td><button (click)='setEditArtist()'>Edit</button></td> -->
+      <td><button (click)="deleteArtist(artist.id)">Delete</button></td>
+      <!-- <td>
+        <img [src]="artist.img"/>
+      </td> -->
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div *ngIf='editArtist'>
+  <input type="text" name='name' placeholder="Artist Name" [(ngModel)]='editArtist.name'>
+  <input type="text" name='art form' placeholder="Art Forms" [(ngModel)]='editArtist.artStyle'>
+  <input type="text" name='birth year' placeholder="Birth Year" [(ngModel)]='editArtist.birthYear'>
+  <input type="text" name='death year' placeholder="Death Year" [(ngModel)]='editArtist.deathYear'>
+  <input type="text" name='list of works' placeholder="List of Works" [(ngModel)]='editArtist.listOfWork'>
+
+  <button (click)='updateArtist(editArtist)'>Save</button>
+  <button (click)='editArtist=null'>Cancel</button>
+</div>
